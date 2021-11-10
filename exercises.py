@@ -1,4 +1,4 @@
-from math import pow, sqrt
+from math import pow, sqrt, sin
 
 
 def ex1():
@@ -11,24 +11,24 @@ def ex1():
             # prompt the user to input the width of the triangle - checks if it is positive
             triangle_width = float(input("Please enter the width of the triangle: "))
             triangle_width = check_if_input_is_positive(triangle_width, "width")
-
+            running = False
         except ValueError as e:
             print(e)
         else:  # calculate the hypotenuse of the triangle and round it to 1dp - prints result to screen
             triangle_hypotenuse = round(sqrt(pow(triangle_height, 2) + pow(triangle_width, 2)), 1)
             print(f"The hypotenuse of the triangle  is {triangle_hypotenuse} cm\n")
 
-#  checks if user input is a positive integer = if not prompts user to do so and then returns result
+
 def check_if_input_is_positive(user_input, token):
-    valid_input = 0
+    #  checks if user input is a positive integer = if not prompts user to do so and then returns result
     if user_input < 0:
         running = True
         while running:
             print("Please enter a positive integer")
-            valid_input = float(input(f"Please enter the {token} of the triangle: "))
-            if valid_input > 0.0:
+            user_input = float(input(f"Please enter the {token} of the triangle: "))
+            if user_input > 0.0:
                 running = False
-    return valid_input
+    return user_input
 
 
 def select_exercise():
