@@ -30,18 +30,41 @@ def ex1():
 
 def check_if_input_is_positive(user_input, token):
     #  checks if user input is a positive integer = if not prompts user to do so and then returns result
-    if user_input < 0:
+    if user_input < 0 or user_input == 0:
         running = True
         while running:
             print("Please enter a positive integer")
-            user_input = float(input(f"Please enter the {token} of the triangle: "))
+            user_input = determine_message_to_be_shown(token)
             if user_input > 0.0:
                 running = False
     return user_input
 
 
+def determine_message_to_be_shown(token):
+    match token:
+        case "height" | "width":
+            return float(input(f"Please enter the {token} of the triangle: "))
+        case "fibonacci":
+            return int(input("How many numbers of the fibonacci sequence should be displayed? "))
+
+
+def ex2():
+    user_input = int(input("How many numbers of the fibonacci sequence should be displayed? "))
+    user_input = check_if_input_is_positive(user_input, "fibonacci")
+    x = 0
+    y = 1
+    counter = 0
+    while counter < user_input:
+        newx = x
+        x = y
+        y = newx + y
+        counter+=1
+        if counter != user_input: print(newx, end=',')
+        else: print(newx)
+    print("\n")
+
 def select_exercise():
-    list_of_exercises = [None, ex1]
+    list_of_exercises = [None, ex1, ex2]
     running = True
     while running:
         line = input("Select an exercise (0 or 'q' to quit): ")
