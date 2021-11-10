@@ -28,6 +28,22 @@ def ex1():
             print(f"The angle of B is : {degree_of_angle_b}\u0080")
 
 
+def ex2():  # prompts user for input - then checks if the input is valid
+    user_input = int(input("How many numbers of the fibonacci sequence should be displayed? "))
+    user_input = check_if_input_is_positive(user_input, "fibonacci")
+    first_number = 0
+    second_number = 1
+    #  swap numbers to be printed and calculate the sum of the next number in the sequence
+    while user_input > 0:
+        print_value = first_number
+        first_number = second_number
+        second_number = print_value + second_number
+        user_input = user_input - 1
+        if user_input != 0: print(print_value, end=', ')
+        else: print(print_value)
+    print("\n")
+
+
 def check_if_input_is_positive(user_input, token):
     #  checks if user input is a positive integer = if not prompts user to do so and then returns result
     if user_input < 0 or user_input == 0:
@@ -46,22 +62,6 @@ def determine_message_to_be_shown(token):
             return float(input(f"Please enter the {token} of the triangle: "))
         case "fibonacci":
             return int(input("How many numbers of the fibonacci sequence should be displayed? "))
-
-
-def ex2():
-    user_input = int(input("How many numbers of the fibonacci sequence should be displayed? "))
-    user_input = check_if_input_is_positive(user_input, "fibonacci")
-    x = 0
-    y = 1
-    counter = 0
-    while counter < user_input:
-        newx = x
-        x = y
-        y = newx + y
-        counter+=1
-        if counter != user_input: print(newx, end=',')
-        else: print(newx)
-    print("\n")
 
 def select_exercise():
     list_of_exercises = [None, ex1, ex2]
