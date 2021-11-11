@@ -40,22 +40,29 @@ def ex2():  # prompts user for input - then checks if the input is valid
         first_number = second_number
         second_number = print_value + second_number
         user_input = user_input - 1
-        if user_input != 0: print(print_value, end=', ')
-        else: print(print_value)
+        if user_input != 0:
+            print(print_value, end=', ')
+        else:
+            print(print_value)
     print("\n")
+
 
 def ex3():
     print("Enter two integers and calculate their binomial coefficients ")
     running = True
     while running:
         try:
-            pass
+            x = int(input("Enter the value of integer x: "))
+            x = check_if_input_is_positive(x, "binomial_x")
+            y = int(input("Enter the value of integer y: "))
+            y = check_if_input_is_positive(y, "binomial_y")
         except:
             pass
 
+
 def check_if_input_is_positive(user_input, token):
     #  checks if user input is a positive integer = if not prompts user to do so and then returns result
-    if user_input < 0 or user_input == 0:
+    if user_input < 0:
         running = True
         while running:
             print("Please enter a positive integer")
@@ -71,6 +78,11 @@ def determine_message_to_be_shown(token):
             return float(input(f"Please enter the {token} of the triangle: "))
         case "fibonacci":
             return int(input("How many numbers of the fibonacci sequence should be displayed? "))
+        case "binomial_x":
+            return int(input("Enter the value of integer x: "))
+        case "binomial_y":
+            return int(input("Enter the value of integer y: "))
+
 
 def select_exercise():
     list_of_exercises = [None, ex1, ex2, ex3]
