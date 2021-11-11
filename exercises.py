@@ -1,4 +1,3 @@
-import sys
 from math import pow, sqrt, atan, degrees
 
 
@@ -49,15 +48,6 @@ def ex2():  # prompts user for input - then checks if the input is valid
     print("\n")
 
 
-def binomial(n, k):
-    b = 1
-    for i in range(min(k, n - k)):
-        b *= n
-        b //= i + 1
-        n -= 1
-    return b
-
-
 def ex3():
     print("Enter two integers and calculate their binomial coefficients ")
     running = True
@@ -79,12 +69,14 @@ def ex3():
                 print("The expression simplifies to 1")
                 print(f"In which n is {n} and k is {k}")
                 running = False
-            result = binomial(n, k)
-            print(f"The binomial coefficient of {n} and {k} is : {result}")
-            running = False
+            else:
+                result = binomial(n, k)
+                print(f"The binomial coefficient of {n} and {k} is : {result}")
+                running = False
         except ValueError:
             print(ValueError)
-
+def ex4():
+    pass
 
 def check_if_input_is_positive(user_input, token):
     #  checks if user input is a positive integer = if not prompts user to do so and then returns result
@@ -110,14 +102,23 @@ def determine_message_to_be_shown(token):
             return int(input("Enter the value of integer y: "))
 
 
+def binomial(n, k):
+    b = 1
+    for i in range(min(k, n - k)):
+        b *= n
+        b //= i + 1
+        n -= 1
+    return b
+
+
 def select_exercise():
-    list_of_exercises = [None, ex1, ex2, ex3]
+    list_of_exercises = [None, ex1, ex2, ex3, ex4]
     running = True
     while running:
         line = input("Select an exercise (0 or 'q' to quit): ")
         if line == "0" or line == "q":
             running = False
-        elif len(line) == 1 and "1" <= line <= "3":
+        elif len(line) == 1 and len(line) <= 4:
             list_of_exercises[int(line)]()
         else:
             print("Invalid input - try again")
