@@ -86,7 +86,7 @@ def ex4():
         try:
             user_input = input("Please input a line of text: ").split()
             if len(user_input) == 0:
-                raise ValueError("Invalid input")
+                raise IOError("Invalid input")
             for word in user_input:
                 if len(shortest_word) == 0 or len(word) < len(shortest_word):
                     shortest_word = word
@@ -94,7 +94,7 @@ def ex4():
                     longest_word = word
                 print(word)
             running = False
-        except ValueError as e:
+        except IOError as e:
             print(e)
             continue
     print(f"The length of the shortest word '{shortest_word}' is {len(shortest_word)}")
