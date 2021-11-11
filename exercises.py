@@ -1,3 +1,4 @@
+import sys
 from math import pow, sqrt, atan, degrees
 
 
@@ -35,6 +36,7 @@ def ex2():  # prompts user for input - then checks if the input is valid
     first_number = 0
     second_number = 1
     #  swap numbers to be printed and calculate the sum of the next number in the sequence
+    if user_input == 0: return print(0)
     while user_input > 0:
         print_value = first_number
         first_number = second_number
@@ -47,17 +49,41 @@ def ex2():  # prompts user for input - then checks if the input is valid
     print("\n")
 
 
+def binomial(n, k):
+    b = 1
+    for i in range(min(k, n - k)):
+        b *= n
+        b //= i + 1
+        n -= 1
+    return b
+
+
 def ex3():
     print("Enter two integers and calculate their binomial coefficients ")
     running = True
     while running:
         try:
-            x = int(input("Enter the value of integer x: "))
-            x = check_if_input_is_positive(x, "binomial_x")
-            y = int(input("Enter the value of integer y: "))
-            y = check_if_input_is_positive(y, "binomial_y")
-        except:
-            pass
+            n = int(input("Enter the value of integer n: "))
+            n = check_if_input_is_positive(n, "binomial_x")
+            k = int(input("Enter the value of integer k: "))
+            k = check_if_input_is_positive(k, "binomial_y")
+            if k > n:
+                print("When k > n the value is 0")
+                print("This is because the n number must be larger or equal to k")
+                running = False
+            elif k == 1:
+                print(f"The expression simplifies to {n}")
+                print(f"In which n is {n} and k is {k}")
+                running = False
+            elif k == n or k == 0:
+                print("The expression simplifies to 1")
+                print(f"In which n is {n} and k is {k}")
+                running = False
+            result = binomial(n, k)
+            print(f"The binomial coefficient of {n} and {k} is : {result}")
+            running = False
+        except ValueError:
+            print(ValueError)
 
 
 def check_if_input_is_positive(user_input, token):
@@ -91,7 +117,7 @@ def select_exercise():
         line = input("Select an exercise (0 or 'q' to quit): ")
         if line == "0" or line == "q":
             running = False
-        elif len(line) == 1 and "1" <= line <= "8":
+        elif len(line) == 1 and "1" <= line <= "3":
             list_of_exercises[int(line)]()
         else:
             print("Invalid input - try again")
