@@ -88,9 +88,9 @@ def ex4():
             if len(user_input) == 0:
                 raise IOError("Invalid input")
             for word in user_input:
-                if len(shortest_word) == 0 or len(word) < len(shortest_word):
+                if len(shortest_word) == 0 or len(word.casefold()) < len(shortest_word.casefold()):
                     shortest_word = word
-                if len(longest_word) == 0 or len(word) > len(longest_word):
+                if len(longest_word) == 0 or len(word) > len(longest_word.casefold()):
                     longest_word = word
                 print(word)
             running = False
