@@ -86,6 +86,33 @@ def ex4():
     print(f"The length of the shortest word '{longest_word}' is {len(longest_word)}")
 
 
+def ex5():
+    running = True
+    vowels = "aeiou"
+    store_occurrence_of_vowels = {}
+    while running:
+        try:
+            user_input = "are you about"
+            # input("Please input a line of text: ")
+            if len(user_input) == 0:
+                raise IOError("Invalid input")
+            print(f"The following line was inputted by the user: \"{user_input}\"")
+            for char in user_input.casefold():
+                if char in vowels:
+                    if char not in store_occurrence_of_vowels:
+                        store_occurrence_of_vowels[char] = 1
+                    else:
+                        store_occurrence_of_vowels[char] += 1
+            print(f"visual display of all the vowels found within the text: {store_occurrence_of_vowels}")
+            print("The least occurring vowel(s) from the text is; ", end='')
+            for occ in store_occurrence_of_vowels:
+                if store_occurrence_of_vowels[occ] == min(store_occurrence_of_vowels.values()):
+                    print(f"{occ} with {store_occurrence_of_vowels[occ]} occurrences")
+            break
+        except IOError as e:
+            print(e)
+
+
 def check_if_input_is_positive(user_input, token):
     #  checks if user input is a positive integer = if not prompts user to do so and then returns result
     if user_input < 0:
@@ -142,16 +169,17 @@ def check_value_of_k(k, n):
 
 
 def select_exercise():
-    list_of_exercises = [None, ex1, ex2, ex3, ex4]
-    running = True
-    while running:
-        line = input("Select an exercise (0 or 'q' to quit): ")
-        if line == "0" or line == "q":
-            running = False
-        elif len(line) == 1 and len(line) <= 4:
-            list_of_exercises[int(line)]()
-        else:
-            print("Invalid input - try again")
+    # list_of_exercises = [None, ex1, ex2, ex3, ex4, ex5]
+    # running = True
+    # while running:
+    #     line = input("Select an exercise (0 or 'q' to quit): ")
+    #     if line == "0" or line == "q":
+    #         running = False
+    #     elif len(line) == 1 and "1" <= line <= "5":
+    #         list_of_exercises[int(line)]()
+    #     else:
+    #         print("Invalid input - try again")
+    ex5()
 
 
 if __name__ == '__main__':
