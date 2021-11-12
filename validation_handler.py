@@ -1,6 +1,6 @@
 def check_if_input_is_positive(user_input, token):
     #  checks if user input is a positive integer = if not prompts user to do so and then returns result
-    if user_input < 0:
+    if user_input <= 0:
         running = True
         while running:
             print("Please enter a positive integer")
