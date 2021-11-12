@@ -1,47 +1,8 @@
-import sys
-from math import pow, sqrt, atan, degrees
-
 from ex1 import ex1
 from ex2 import ex2
 from ex3 import ex3
 from ex4 import ex4
-from validation_handler import check_if_input_is_positive
-
-
-
-
-
-
-
-
-
-
-def ex5():
-    running = True
-    vowels = "aeiou"
-    store_occurrence_of_vowels = {}
-    while running:
-        try:
-            user_input = input("Please input a line of text: ")
-            if len(user_input) == 0:
-                raise IOError("Invalid input")
-            print(f"The following line was inputted by the user: \"{user_input}\"")
-            for char in user_input.casefold():
-                if char in vowels:
-                    if char not in store_occurrence_of_vowels:
-                        store_occurrence_of_vowels[char] = 1
-                    else:
-                        store_occurrence_of_vowels[char] += 1
-            if not bool(store_occurrence_of_vowels):
-                return print("no vowels found in the line of text")
-            print(f"visual display of all the vowels found within the text: {store_occurrence_of_vowels}")
-            print("The least occurring vowel(s) from the text is; ", end='')
-            for occ in store_occurrence_of_vowels:
-                if store_occurrence_of_vowels[occ] == min(store_occurrence_of_vowels.values()):
-                    print(f"{occ} with {store_occurrence_of_vowels[occ]} occurrences")
-            running = False
-        except IOError as e:
-            print(e)
+from ex5 import ex5
 
 
 def ex6():
