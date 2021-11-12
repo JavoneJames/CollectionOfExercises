@@ -4,6 +4,7 @@ from math import pow, sqrt, atan, degrees
 from ex1 import ex1
 from ex2 import ex2
 from ex3 import ex3
+from ex4 import ex4
 from validation_handler import check_if_input_is_positive
 
 
@@ -13,27 +14,6 @@ from validation_handler import check_if_input_is_positive
 
 
 
-def ex4():
-    running = True
-    shortest_word = ""
-    longest_word = ""
-    while running:
-        try:
-            user_input = input("Please input a line of text: ").split()
-            if len(user_input) == 0:
-                raise IOError("Invalid input")
-            for word in user_input:
-                if len(shortest_word) == 0 or len(word.casefold()) < len(shortest_word.casefold()):
-                    shortest_word = word
-                if len(longest_word) == 0 or len(word) > len(longest_word.casefold()):
-                    longest_word = word
-                print(word)
-            running = False
-        except IOError as e:
-            print(e)
-            continue
-    print(f"The length of the shortest word '{shortest_word}' is {len(shortest_word)}")
-    print(f"The length of the shortest word '{longest_word}' is {len(longest_word)}")
 
 
 def ex5():
