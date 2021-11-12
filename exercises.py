@@ -92,8 +92,7 @@ def ex5():
     store_occurrence_of_vowels = {}
     while running:
         try:
-            user_input = "are you about"
-            # input("Please input a line of text: ")
+            user_input = input("Please input a line of text: ")
             if len(user_input) == 0:
                 raise IOError("Invalid input")
             print(f"The following line was inputted by the user: \"{user_input}\"")
@@ -103,12 +102,14 @@ def ex5():
                         store_occurrence_of_vowels[char] = 1
                     else:
                         store_occurrence_of_vowels[char] += 1
+            if not bool(store_occurrence_of_vowels):
+                return print("no vowels found in the line of text")
             print(f"visual display of all the vowels found within the text: {store_occurrence_of_vowels}")
             print("The least occurring vowel(s) from the text is; ", end='')
             for occ in store_occurrence_of_vowels:
                 if store_occurrence_of_vowels[occ] == min(store_occurrence_of_vowels.values()):
                     print(f"{occ} with {store_occurrence_of_vowels[occ]} occurrences")
-            break
+            running = False
         except IOError as e:
             print(e)
 
@@ -169,17 +170,16 @@ def check_value_of_k(k, n):
 
 
 def select_exercise():
-    # list_of_exercises = [None, ex1, ex2, ex3, ex4, ex5]
-    # running = True
-    # while running:
-    #     line = input("Select an exercise (0 or 'q' to quit): ")
-    #     if line == "0" or line == "q":
-    #         running = False
-    #     elif len(line) == 1 and "1" <= line <= "5":
-    #         list_of_exercises[int(line)]()
-    #     else:
-    #         print("Invalid input - try again")
-    ex5()
+    list_of_exercises = [None, ex1, ex2, ex3, ex4, ex5]
+    running = True
+    while running:
+        line = input("Select an exercise (0 or 'q' to quit): ")
+        if line == "0" or line == "q":
+            running = False
+        elif len(line) == 1 and "1" <= line <= "5":
+            list_of_exercises[int(line)]()
+        else:
+            print("Invalid input - try again")
 
 
 if __name__ == '__main__':
