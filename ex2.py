@@ -1,4 +1,5 @@
-from validation_handler import  check_if_input_is_positive
+from validation_handler import check_if_input_is_positive
+
 
 def ex2():  # prompts user for input - then checks if the input is valid
     print("Exercise 2 - Enter a number and display all the fibonacci sequence to that nth")
@@ -17,4 +18,3 @@ def ex2():  # prompts user for input - then checks if the input is valid
             print(print_value, end=', ')
         else:
             print(print_value)
-    print("\n")

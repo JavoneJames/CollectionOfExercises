@@ -2,6 +2,7 @@ import sys
 from math import pow, sqrt, atan, degrees
 
 from ex1 import ex1
+from ex2 import ex2
 from validation_handler import check_if_input_is_positive
 
 
