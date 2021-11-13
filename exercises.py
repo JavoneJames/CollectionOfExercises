@@ -8,17 +8,16 @@ from ex7 import ex7
 
 
 def select_exercise():
-    # list_of_exercises = [None, ex1, ex2, ex3, ex4, ex5, ex6, ex7]
-    # running = True
-    # while running:
-    #     line = input("Select an exercise (0 or 'q' to quit): ")
-    #     if line == "0" or line == "q":
-    #         running = False
-    #     elif len(line) == 1 and "1" <= line <= "6":
-    #         list_of_exercises[int(line)]()
-    #     else:
-    #         print("Invalid input - try again")
-    ex7()
+    list_of_exercises = [None, ex1, ex2, ex3, ex4, ex5, ex6, ex7]
+    running = True
+    while running:
+        line = input("Select an exercise (0 or 'q' to quit): ")
+        if line == "0" or line == "q":
+            running = False
+        elif len(line) == 1 and "1" <= line <= "6":
+            list_of_exercises[int(line)]()
+        else:
+            print("Invalid input - try again")
 
 
 if __name__ == '__main__':

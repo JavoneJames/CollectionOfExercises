@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 .idea/
 /being_lazy.py
+/img.png
