@@ -7,19 +7,19 @@ from ex6 import ex6
 from ex7 import ex7
 from ex8 import ex8
 from ex9 import ex9
-
+from ex10 import ex10
 def select_exercise():
-    list_of_exercises = [None, ex1, ex2, ex3, ex4, ex5, ex6, ex7, ex8, ex9]
-    running = True
-    while running:
-        line = input("Select an exercise (0 or 'q' to quit): ")
-        if line == "0" or line == "q":
-            running = False
-        elif len(line) == 1 and "1" <= line <= "9":
-            list_of_exercises[int(line)]()
-        else:
-            print("Invalid input - try again")
-
+    # list_of_exercises = [None, ex1, ex2, ex3, ex4, ex5, ex6, ex7, ex8, ex9, e10]#e11
+    # running = True
+    # while running:
+    #     line = input("Select an exercise (0 or 'q' to quit): ")
+    #     if line == "0" or line == "q":
+    #         running = False
+    #     elif len(line) == 1 and "1" <= line <= "11":
+    #         list_of_exercises[int(line)]()
+    #     else:
+    #         print("Invalid input - try again")
+    ex10()
 
 if __name__ == '__main__':
     select_exercise()
