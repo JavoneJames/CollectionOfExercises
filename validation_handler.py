@@ -24,3 +24,5 @@ def determine_message_to_be_shown(user_input, token):
             return int(input("Enter the value of integer k: "))
         case "line of text":
             return input("Please input a line of text: ")
+        case "rpw" | "column" :
+            return int(input(f"Enter how many {token} you want to be displayed: "))
